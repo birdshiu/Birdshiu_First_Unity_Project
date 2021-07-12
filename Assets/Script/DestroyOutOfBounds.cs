@@ -26,5 +26,10 @@ public class DestroyOutOfBounds : MonoBehaviour
             gameScript.DecreaseLife();
             Destroy(gameObject);
         }
+
+        if (gameScript.isGameOver)
+        {
+            Destroy(gameObject);
+        }
     }
 }

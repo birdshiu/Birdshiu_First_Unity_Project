@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameScript : MonoBehaviour
 {
     private const string GAME_OVER_MESSAGE = "遊戲結束\n你的分數為";
-    private bool isGameOver;
+    public bool isGameOver;
     private int life;
     private int score;
 
@@ -28,6 +28,7 @@ public class GameScript : MonoBehaviour
         //初始數值
         life = 3;
         score = 0;
+        isGameOver = false;
 
         //使用者不能亂動
         playerController.enabled = false;
@@ -65,6 +66,7 @@ public class GameScript : MonoBehaviour
 
     private void RestartGame()
     {
+        isGameOver = false;
         life = 3;
         score = 0;
         lifeText.text = life.ToString();
@@ -93,6 +95,7 @@ public class GameScript : MonoBehaviour
 
         if (this.life == 0)
         {
+            isGameOver = true;
             GameOver();
         }
     }
